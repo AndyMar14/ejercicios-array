@@ -1,0 +1,35 @@
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		float[] alturas = new float[5];
+	 	float altura;
+		float promedio = 0;
+		int debajo = 0;
+		int sobre = 0;
+		Console.WriteLine("Escriba la altura de 5 pesonas");
+		for (int i=0; i<5; i++){
+			Console.WriteLine("Escriba la altura");
+			altura = float.Parse(Console.ReadLine());
+			alturas[i] = altura;
+			promedio = promedio + alturas[i];
+		}
+        promedio = promedio / 5;
+		
+		Console.WriteLine("\n"+" El promedio es: " + promedio);
+		for (int i=0; i<5; i++){
+			if(alturas[i] > promedio){
+				/*Console.WriteLine("\n"+alturas[i] + " Esta sobre el promedio");*/
+				sobre++;
+			}else{
+				/*Console.WriteLine("\n"+alturas[i] + " Esta debajo del promedio");*/
+				debajo++;
+			}
+
+		}
+		Console.WriteLine("\n"+sobre + " estan sobre el promedio");
+		Console.WriteLine("\n"+debajo + " estan debajo del promedio");
+	}
+}
