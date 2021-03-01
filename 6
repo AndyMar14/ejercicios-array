@@ -1,0 +1,95 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int Seguir = 1;
+		Console.WriteLine("Que desea hacer? Inserte el número de la opción que desea ");
+		Console.WriteLine("(1)Añadir una ficha nueva");	
+		Console.WriteLine("(2)Ver todas las fichas");		  
+		Console.WriteLine("(3)Buscar la ficha que tenga un cierto nombre");	
+		Console.WriteLine("(4)Salir");
+		int caseSwitch = int.Parse(Console.ReadLine());
+		string[,] imgs = new string[700,4];
+		int index = 0;
+		
+		while(Seguir == 1){
+			
+		if(index ==700){
+			Console.WriteLine("\nYa no puedes insertar mas datos");
+			Seguir = 2;
+			break;
+		}
+			
+		if(caseSwitch == 1){
+			string nombre;
+			int ancho;
+			int alto;
+			int tm;
+			Console.WriteLine("\nIngrese el nombre de la imagen");
+			nombre = Console.ReadLine();
+			Console.WriteLine("Ingrese el ancho de la imagen en pixeles");
+			ancho = int.Parse(Console.ReadLine());
+			Console.WriteLine("Ingrese la altura de la imagen en pixeles");
+			alto = int.Parse(Console.ReadLine());
+			Console.WriteLine("Ingrese el tamaño de la imagen en  KB");
+			tm = int.Parse(Console.ReadLine());
+			imgs[index,0]= nombre;
+			imgs[index,1]= Convert.ToString(ancho);
+			imgs[index,2]= Convert.ToString(alto);
+			imgs[index,3]= Convert.ToString(tm);
+			index++;
+			Console.WriteLine("\nQue desea hacer? Inserte el número de la opción que desea ");
+			Console.WriteLine("(1)Añadir una ficha nueva");	
+			Console.WriteLine("(2)Ver todas las fichas");		  
+			Console.WriteLine("(3)Buscar la ficha que tenga un cierto nombre");	
+			Console.WriteLine("(4)Salir");
+			caseSwitch = int.Parse(Console.ReadLine());
+			Console.WriteLine(imgs[index,0]);
+			Console.WriteLine(imgs[index,1]);
+			Console.WriteLine(imgs[index,2]);
+			Console.WriteLine(imgs[index,3]);
+		}
+			
+			if(caseSwitch == 2){
+				Console.WriteLine("\nVer todas las fichas");
+				for(int i = 0;i<=(index - 1);i++){
+					Console.WriteLine("#"+i+")"+imgs[i,0]);
+				}
+				Console.WriteLine("\nQue desea hacer? Inserte el número de la opción que desea ");
+				Console.WriteLine("(1)Añadir una ficha nueva");	
+				Console.WriteLine("(2)Ver todas las fichas");		  
+				Console.WriteLine("(3)Buscar la ficha que tenga un cierto nombre");	
+				Console.WriteLine("(4)Salir");
+				caseSwitch = int.Parse(Console.ReadLine());
+			}
+			
+			if(caseSwitch == 3){
+				Console.WriteLine("\nBuscar la ficha que tenga un cierto nombre");
+				string nombrei = Console.ReadLine();
+				
+				for(int i = 0;i<=index;i++){
+					
+					if( imgs[i,0] == nombrei ){
+						Console.WriteLine("#"+i+")"+imgs[i,0]);
+						Console.WriteLine("Ancho: "+imgs[i,1]);
+						Console.WriteLine("Alto: "+imgs[i,2]);
+						Console.WriteLine("Peso: "+imgs[i,3] +" KB");
+					}
+				}
+				
+				Console.WriteLine("\nQue desea hacer? Inserte el número de la opción que desea ");
+				Console.WriteLine("(1)Añadir una ficha nueva");	
+				Console.WriteLine("(2)Ver todas las fichas");		  
+				Console.WriteLine("(3)Buscar la ficha que tenga un cierto nombre");	
+				Console.WriteLine("(4)Salir");
+				caseSwitch = int.Parse(Console.ReadLine());
+			}
+			
+			if(caseSwitch == 4){
+				Seguir = 2;
+			}
+		}
+	}
+}
